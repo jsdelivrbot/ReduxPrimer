@@ -53,6 +53,21 @@ Only the most parent component that uses a particular piece of 'state' needs  to
 ***Implementation of a Container Class***
 Sec. 4, Lec. 42
 
+***React/Redux Recap***
+
+1.  Redux constructs the application state.  React provides the views to display that state.
+
+2.  The two libraries are inherently disconnected.  Use React-Redux to connect the two.
+
+3.  Reducer functions generate the application state.
+        ex) reducer_books => always returns an array of books; the array contains a list of objects, with each object having a title property.
+
+4.  Added reducer_books to the combineReducers() call inside reducers/index.js.
+This rootReducer creates a key called books whose value is the array from reducer_books.
+
+5.  Created a book-list component.  Since it needed to be aware of state, through the list of books, we promoted this component to a container.
+
+6.  Redux generated a state object that contained our list of books.  We then mapped that state as 'props' to the BookList component.  Because our state was updated, the container rendered into the app.
 
 
 
