@@ -69,6 +69,10 @@ This rootReducer creates a key called books whose value is the array from reduce
 
 6.  Redux generated a state object that contained our list of books.  We then mapped that state as 'props' to the BookList component.  Because our state was updated, the container rendered into the app.
 
+***Changing State***
+
+
+
 
 
 
