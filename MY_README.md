@@ -29,3 +29,31 @@ Now, let's write a function that produces the value of our state.
 
     For the Books reducer, it should return an array of objects, with each object being the title of the book.  And that array should be assigned to the key 'books' of the application state.
 
+***combineReducers()***
+This function defines how we create our application state:
+
+        const rootReducer = combineReducers({
+            books: BooksReducer
+        });
+
+***Containers***
+Def.  A container is a special React component that has direct access to the 'state' produced by Redux.  
+
+Recall that React and Redux are separete libraries.  A third library, React/Redux, is needed to bridge the two.
+
+Created a BookList component and promoted it to a container.
+
+How do we choose which component becomes a container?
+
+    1.  BookList - cares about when the list of books changes
+    2.  BookDetail - cares when the active book changes
+
+Only the most parent component that uses a particular piece of 'state' needs  to be connected to Redux.
+
+***Implementation of a Container Class***
+Sec. 4, Lec. 42
+
+
+
+
+
