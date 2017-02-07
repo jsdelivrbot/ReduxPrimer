@@ -70,9 +70,45 @@ This rootReducer creates a key called books whose value is the array from reduce
 6.  Redux generated a state object that contained our list of books.  We then mapped that state as 'props' to the BookList component.  Because our state was updated, the container rendered into the app.
 
 ***Changing State***
+We use Actions and Action Creators to change state over time.
 
+Most everything in Redux is triggered by an event, directly or indirectly, by the user.
 
+    a.  Direct Events
+            Selecting an item from a dropdown
+            Hovering over an element
+            Submitting a form
 
+    b.  Indirect Events
+            AJAX request finishing
+            Page finishing loading
 
+Process
+    a.  These events can call an **action creator**.  An action creator is a function that returns an action, which is an object:
 
+            function(return {
+                // type of action just triggered
+                type: BOOK_SELECTED,
+                // additional data that describes action
+                book: {title: 'Book 2'}
+            })
 
+    b. This action object is automatically sent to all reducers in the application.
+
+    c.  Reducers, depending on the action, will return a different piece of state.
+
+            In reducer, will usually use a switch statement to go to different lines depending on the action:
+
+            switch(action.type) {
+                case: BOOK_SELECTED:
+                    return action.book
+                default:
+                    // don't care about this action, so do nothing
+                    return current state    
+            }
+
+            The returned value will be the new value of state.
+
+    d.  The new state is piped into the application state.
+
+    e.  The application state is then pumped into the React application, causing all the containers to re-render
