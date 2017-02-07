@@ -138,6 +138,23 @@ So, under the hood, Redux sends some 'booting-up' actions through the reducers.
 
 When our reducer_active_book is called, we skip the switch statement and go to the default value of state = "null"
 
+***Reducers and Actions Review***
+
+1.  Redux is in charge of managing application state.  And state is a single, plain JavaScript object.
+
+2.  Component state is completely separate and distinct from application state.
+
+3.  Application state formed by reducers.
+
+4.  Reducers combined together by combineReducers() method.  Each key in combineReducers object, we assign one reducer.  And that reducer is responsible for creating that portion of application state.
+
+5.  Reducers responsible for changing application state over time.  Changes in state occur through actions.
+
+6.  Whenever an action is dispatched, it flows through all reducers.  Depending on the action dispatched, the reducer has the option of changing its portion of the application state.
+
+7.  Action creators are functions that return an action.
+
+8.  An action is just a plain JavaScript object.
 
 
 
