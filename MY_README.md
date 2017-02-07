@@ -87,9 +87,9 @@ Process
     a.  These events can call an **action creator**.  An action creator is a function that returns an action, which is an object:
 
             function(return {
-                // type of action just triggered
+                // type of action just triggered (required)
                 type: BOOK_SELECTED,
-                // additional data that describes action
+                // payload => additional data that describes action
                 book: {title: 'Book 2'}
             })
 
@@ -112,3 +112,6 @@ Process
     d.  The new state is piped into the application state.
 
     e.  The application state is then pumped into the React application, causing all the containers to re-render
+
+
+***Consuming Actions in Reducers***
