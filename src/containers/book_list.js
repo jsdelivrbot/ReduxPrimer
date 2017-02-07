@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+
 // React-Redux is the glue between the React and Redux libraries
 import { connect } from 'react-redux';
+
+// import action creator selectBook
+import { selectBook } from '../actions/index';
+
+// import bindActionCreators from Redux
+// this function ensures that the action created by the action creator
+// flows through all the reducers
+import { bindActionCreators } from 'redux';
 
 class BookList extends Component {
 
@@ -41,6 +50,19 @@ function mapStateToProps(state) {
 	};
 }
 
+// Anything returned from this function will end up as props on the
+// BookList container.
+// Then within BookList, we can call this.props.selectBook, which will call
+// our action creator
+function mapDispatchToProps(dispatch) {
+	// Whenever selectBook is called, the result should be dispatched
+	// to all reducers
+	return bindActionCreators({ selectBook:selectBook }, dispatch);
+}
+
+// Promote BookList from a component to a container.
 // the connect function takes a function and a component 
 // and produces a container.
-export default connect(mapStateToProps)(BookList);
+
+// Also needs to know about the new dispatch method.  Make it available as a prop.
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
