@@ -115,3 +115,42 @@ Process
 
 
 ***Consuming Actions in Reducers***
+Because we wired BookList as a container, the selectBook action creator will be sent to all reducers.
+
+1.  Create the active book reducer in the reducers directory:
+
+        reducer_active_book.js
+
+2.  All reducers get two arguments, current state and action:
+
+            export default function (state, action) {
+
+            }
+
+    Reducers are only called when an 'action' occurs.
+    State argument is not application state, but only the state this reducer is responsible for.
+
+
+***Conditional Rendering***
+When app first boots up, we don't have any existing application state.  It hasn't been defined yet.  Recall that our application state is defined entirely by the reducers.
+
+So, under the hood, Redux sends some 'booting-up' actions through the reducers.
+
+When our reducer_active_book is called, we skip the switch statement and go to the default value of state = "null"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
