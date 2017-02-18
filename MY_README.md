@@ -152,9 +152,9 @@ When our reducer_active_book is called, we skip the switch statement and go to t
 
 6.  Whenever an action is dispatched, it flows through all reducers.  Depending on the action dispatched, the reducer has the option of changing its portion of the application state.
 
-7.  Action creators are functions that return an action.
+7.  Action creators are simple functions that return an action.
 
-8.  An action is just a plain JavaScript object.
+8.  An action is just a plain JavaScript object.  Actions must define a type and they can optionally include additional data like a payload property.
 
 
 
